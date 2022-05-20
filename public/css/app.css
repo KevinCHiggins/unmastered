@@ -1,0 +1,22 @@
+header {
+    display: block
+}
+
+body {
+    font-family: sans-serif
+}
+
+nav a {
+    float: left;
+    background-color: blue;
+    margin: 1em;
+    padding: 1em;
+}
+
+h1 {
+    margin: auto
+}
+
+footer {
+    margin-top: 2em
+}

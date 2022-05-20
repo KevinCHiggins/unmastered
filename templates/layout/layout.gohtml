@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{.SiteTitle}} - {{.PageTitle}}</title>
+        <link href="/css/app.css" rel="stylesheet" />
+        {{block "styles" .}}{{end}}
+    </head>
+    {{template "header.gohtml" .}}
+    <body>
+
+        {{template "content" .}}
+
+        {{block "scripts" .}}{{end}}
+    </body>
+    {{template "footer.gohtml" .}}
+</html>

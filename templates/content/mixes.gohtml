@@ -1,0 +1,6 @@
+{{define "content"}}
+    {{range .Mixes}}
+        <h2><a href = "/mixes/{{.MixLocation}}">{{.MixTitle}}</a></h2>
+        <p>{{.MixDescription}}</p>
+    {{end}}
+{{end}}
