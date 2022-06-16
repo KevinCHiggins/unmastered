@@ -12,11 +12,14 @@ type controller struct {
 	template *template.Template
 }
 
+type singleAndMultipleController struct {
+	singleTemplate   *template.Template
+	multipleTemplate *template.Template
+}
+
 var (
-	homeController    home
-	aboutController   about
-	mixesController   mixes
-	remixesController remixes
+	homeController     home
+	projectsController projects
 )
 
 func ServePublicDir(path string) {

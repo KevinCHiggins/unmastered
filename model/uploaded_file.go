@@ -1,7 +1,6 @@
 package model
 
 type UploadedFile struct {
-	Path              string
-	CollaboratorEmail string
-	MediaUploadId     int
+	Path          string
+	MediaUploadId int
 }

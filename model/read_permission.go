@@ -1,6 +1,6 @@
 package model
 
 type ReadPermission struct {
-	ProjectId        string
-	CollaboratorName string
+	ProjectId      string
+	CollaboratorId string
 }

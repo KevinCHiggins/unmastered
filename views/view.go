@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	templateLoc = "templates/"
+	templateLoc = "views/"
 	layoutLoc   = templateLoc + "layout/"
 	contentLoc  = templateLoc + "content/"
 )

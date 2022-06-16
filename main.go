@@ -1,8 +1,8 @@
 package main
 
 import (
-	"intive/unmastered/controller"
-	"intive/unmastered/view"
+	controller "intive/unmastered/controllers"
+	view "intive/unmastered/views"
 	"net/http"
 )
 

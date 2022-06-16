@@ -5,6 +5,7 @@ import (
 )
 
 type Collaborator struct {
+	Id         int
 	Name       string
 	Email      string
 	Password   string
