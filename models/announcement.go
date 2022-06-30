@@ -10,3 +10,9 @@ type Announcement struct {
 	Text          string
 	PublishedDate time.Time
 }
+
+var hardcodedAnnouncements []Announcement
+
+func GetAnnouncements() ([]Announcement, error) {
+	return hardcodedAnnouncements, nil
+}

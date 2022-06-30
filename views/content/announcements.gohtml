@@ -1,0 +1,8 @@
+{{define "title"}}Announcements{{end}}
+{{define "content"}}
+    {{range .}}
+        <h4>{{.Title}}</h4>
+        <h5>{{.PublishedDate.Format "02/01/06"}}</h5>
+        <p>{{.Text}}</p>
+    {{end}}
+{{end}}

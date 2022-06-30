@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Unmastered</title>
+        <title>{{block "title" .}}Unmastered{{end}}</title>
         <link href="/css/app.css" rel="stylesheet" />
         {{block "styles" .}}{{end}}
     </head>
-    {{template "header.gohtml" .}}
+    {{block "header.gohtml" .}}{{end}}
     <body>
-
         {{template "content" .}}
-
         {{block "scripts" .}}{{end}}
     </body>
-    {{template "footer.gohtml" .}}
+    {{block "footer.gohtml" .}}{{end}}
 </html>

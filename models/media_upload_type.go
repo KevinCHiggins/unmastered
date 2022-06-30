@@ -5,3 +5,5 @@ type MediaUploadType struct {
 	Name      string
 	Extension string
 }
+
+var hardcodedMediaUploadTypes []MediaUploadType

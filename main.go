@@ -1,14 +1,16 @@
 package main
 
 import (
-	controller "intive/unmastered/controllers"
-	view "intive/unmastered/views"
+	controllers "intive/unmastered/controllers"
+	models "intive/unmastered/models"
+	views "intive/unmastered/views"
 	"net/http"
 )
 
 func main() {
 
-	controller.ServePublicDir("/")
-	controller.Setup(view.LoadTemplates())
+	models.LoadTestData()
+	controllers.ServePublicDir("/")
+	controllers.Setup(views.LoadTemplates())
 	http.ListenAndServe(":8000", nil)
 }

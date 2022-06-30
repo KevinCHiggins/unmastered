@@ -1,22 +1,31 @@
 header {
-    display: block
+    display: block;
+    overflow: auto;
 }
 
+
+
 body {
-    font-family: sans-serif
+    font-family: sans-serif;
 }
 
 nav a {
     float: left;
-    background-color: blue;
+    background-color: paleturquoise;
+    color: darkslategray;
+    
     margin: 1em;
     padding: 1em;
 }
 
+nav a:visited {
+    color: darkslategray
+}
+
 h1 {
-    margin: auto
+    margin: auto;
 }
 
 footer {
-    margin-top: 2em
+    margin-top: 2em;
 }

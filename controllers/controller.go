@@ -18,8 +18,11 @@ type singleAndMultipleController struct {
 }
 
 var (
-	homeController     home
-	projectsController projects
+	homeController          home
+	projectsController      projects
+	announcementsController announcements
+	scoresController        scores
+	errorTemplate           *template.Template
 )
 
 func ServePublicDir(path string) {

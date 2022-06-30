@@ -11,6 +11,7 @@ const (
 	templateLoc = "views/"
 	layoutLoc   = templateLoc + "layout/"
 	contentLoc  = templateLoc + "content/"
+	specialLoc  = templateLoc + "special/" // pages w/o header or footer
 )
 
 func getDirEntries(location string) []os.DirEntry {
@@ -26,28 +27,41 @@ func getDirEntries(location string) []os.DirEntry {
 }
 
 func LoadTemplates() map[string]*template.Template {
-	result := make(map[string]*template.Template)
 
-	layout := template.Must(template.ParseFiles(layoutLoc+"layout.gohtml",
-		layoutLoc+"footer.gohtml", layoutLoc+"header.gohtml"))
-	contentDirEntries := getDirEntries(contentLoc)
-	for _, contentDirEntry := range contentDirEntries {
-		contentFile, err := os.Open(contentLoc + contentDirEntry.Name())
+	layout := template.Must(template.ParseFiles(layoutLoc + "layout.gohtml"))
+	specialTemplates := inflateUsingDirContents(layout, specialLoc)
+
+	template.Must(layout.ParseFiles(layoutLoc+"footer.gohtml",
+		layoutLoc+"header.gohtml"))
+	templates := inflateUsingDirContents(layout, contentLoc)
+
+	for t := range specialTemplates {
+		templates[t] = specialTemplates[t]
+	}
+
+	return templates
+}
+
+func inflateUsingDirContents(t *template.Template, location string) map[string]*template.Template {
+	result := make(map[string]*template.Template)
+	dirEntries := getDirEntries(location)
+	for _, dirEntry := range dirEntries {
+		templateFile, err := os.Open(location + dirEntry.Name())
 		if err != nil {
 			panic("File open error: " + err.Error())
 		}
-		content, err := io.ReadAll(contentFile)
+		content, err := io.ReadAll(templateFile)
 		if err != nil {
 			panic("File read error: " + err.Error())
 		}
-		contentFile.Close()
-		pageTemplate := template.Must(layout.Clone())
+		templateFile.Close()
+		pageTemplate := template.Must(t.Clone())
 		_, err = pageTemplate.Parse(string(content))
 		if err != nil {
 			panic("Parse error: " + err.Error())
 		}
-		dotIndex := strings.LastIndex(contentDirEntry.Name(), ".")
-		templateName := contentDirEntry.Name()[:dotIndex]
+		dotIndex := strings.LastIndex(dirEntry.Name(), ".")
+		templateName := dirEntry.Name()[:dotIndex]
 		result[templateName] = pageTemplate
 	}
 	return result

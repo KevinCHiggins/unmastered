@@ -4,3 +4,5 @@ type UploadedFile struct {
 	Path          string
 	MediaUploadId int
 }
+
+var hardcodedUploadedFiles []UploadedFile
