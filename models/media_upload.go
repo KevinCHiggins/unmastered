@@ -23,6 +23,27 @@ func GetMediaUploads() ([]MediaUpload, error) {
 	return hardcodedMediaUploads, nil
 }
 
+func GetMediaUploadsOfType(typeId int) ([]MediaUpload, error) {
+	all, err := GetMediaUploads()
+	if err != nil {
+		return nil, err
+	}
+	result := []MediaUpload{}
+	for _, mu := range all {
+		if mu.TypeId == typeId {
+			result = append(result, mu)
+		}
+	}
+	return result, nil
+}
+
+func GetScores() ([]MediaUpload, error) {
+	// this will be a two part SQL query that gets the id
+	// of the MediaUploadType id matching the string "score"
+	// then gets MediaUploads matching that MediaUploadType id
+	return GetMediaUploadsOfType(1)
+}
+
 func GetMediaUpload(id int) (MediaUpload, error) {
 	mediaUploads, err := GetMediaUploads()
 	if err == nil {

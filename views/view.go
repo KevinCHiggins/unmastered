@@ -1,6 +1,7 @@
 package view
 
 import (
+	"fmt"
 	"html/template"
 	"io"
 	"os"
@@ -62,6 +63,7 @@ func inflateUsingDirContents(t *template.Template, location string) map[string]*
 		}
 		dotIndex := strings.LastIndex(dirEntry.Name(), ".")
 		templateName := dirEntry.Name()[:dotIndex]
+		fmt.Println("Inflating template ", templateName)
 		result[templateName] = pageTemplate
 	}
 	return result

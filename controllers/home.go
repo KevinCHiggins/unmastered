@@ -11,5 +11,5 @@ func (c home) registerRoutes() {
 }
 
 func (c home) handleHome(w http.ResponseWriter, r *http.Request) {
-	c.template.Execute(w, nil)
+	http.Redirect(w, r, "/projects", http.StatusPermanentRedirect)
 }

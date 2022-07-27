@@ -20,11 +20,13 @@ func LoadTestData() {
 	t, _ := time.Parse("02/01/06", "29/06/22")
 	hardcodedProjects = []Project{{1, "Kev and Soro", t}}
 
+	// yes, this will be in the DB too one day
 	hardcodedMediaUploadTypes = []MediaUploadType{
 		{1, "score", "pdf"},
 		{2, "samplepack", "zip"},
 		{3, "multitrack", "wav"},
 	}
+
 	t, _ = time.Parse("02/01/06", "30/06/22")
 	hardcodedMediaUploads = []MediaUpload{
 		{1, 1, 1, 1, "I'll Be Seeing You (Arrangement)", "Guitar and bass arrangement by Kevin", true, t},
