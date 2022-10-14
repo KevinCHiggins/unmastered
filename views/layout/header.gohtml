@@ -1,5 +1,12 @@
 <header>
-    <h1>Unmastered</h1>
+    <p>
+        {{ if .User }}
+            Logged in:
+            {{ .User.Name }}
+        {{ else }}
+            <a href="/login">Log in</a>
+        {{ end }}
+    </p>
     <h2>{{block "title" .}}Title{{end}}</h2>
     <nav>
         <a href="/projects">Projects</a>

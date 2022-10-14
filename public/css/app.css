@@ -3,7 +3,21 @@ header {
     overflow: auto;
 }
 
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
 
+fieldset.vertical-radio-button-group {
+    display: float;
+    float: left;
+}
+
+fieldset.horizontal-radio-button-group {
+    clear: left;
+    display: block;
+}
 
 body {
     font-family: sans-serif;
@@ -28,4 +42,22 @@ h1 {
 
 footer {
     margin-top: 2em;
+}
+
+label {
+	display: inline;
+	margin: .5em;
+}
+
+input.inline-radio-button {
+    display: inline;
+}
+
+p.radio-option {
+    display: block;
+}
+
+input {
+	display: block;
+	margin: .5em;
 }

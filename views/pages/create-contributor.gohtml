@@ -1,0 +1,12 @@
+{{define "content"}}
+<form id="create-contributor-form" action="/create-contributor" method="post">
+    <fieldset>
+        <legend>Create a new contributor</legend>
+        <p>
+            <label for="name-input">Name</label>
+            <input form="create-contributor-form" type="text" id="name-input"></input>
+        </p>
+    </fieldset>
+    <input type="submit" id="submit-input" value="Submit"></input>
+</form>
+{{end}}

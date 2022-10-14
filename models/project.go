@@ -11,11 +11,11 @@ type Project struct {
 	RegisteredDate time.Time
 }
 
-var hardcodedProjects []Project
+var projects []Project
 
 func GetProjects() ([]Project, error) {
 
-	return hardcodedProjects, nil
+	return projects, nil
 }
 
 func GetProject(id int) (Project, error) {

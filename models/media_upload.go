@@ -6,14 +6,14 @@ import (
 )
 
 type MediaUpload struct {
-	Id             int
-	ProjectId      int
-	CollaboratorId int
-	TypeId         int
-	Title          string
-	Notes          string
-	Public         bool
-	UploadedDate   time.Time
+	Id            int
+	ProjectId     int
+	ContributorId int
+	TypeId        int
+	Title         string
+	Notes         string
+	Public        bool
+	UploadedDate  time.Time
 }
 
 var hardcodedMediaUploads []MediaUpload
@@ -42,6 +42,20 @@ func GetScores() ([]MediaUpload, error) {
 	// of the MediaUploadType id matching the string "score"
 	// then gets MediaUploads matching that MediaUploadType id
 	return GetMediaUploadsOfType(1)
+}
+
+func GetMultitracks() ([]MediaUpload, error) {
+	// this will be a two part SQL query that gets the id
+	// of the MediaUploadType id matching the string "multitrack"
+	// then gets MediaUploads matching that MediaUploadType id
+	return GetMediaUploadsOfType(3)
+}
+
+func GetSamplePacks() ([]MediaUpload, error) {
+	// this will be a two part SQL query that gets the id
+	// of the MediaUploadType id matching the string "multitrack"
+	// then gets MediaUploads matching that MediaUploadType id
+	return GetMediaUploadsOfType(2)
 }
 
 func GetMediaUpload(id int) (MediaUpload, error) {

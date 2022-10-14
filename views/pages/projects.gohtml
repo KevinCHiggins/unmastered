@@ -1,0 +1,8 @@
+{{define "title"}}Projects{{end}}
+{{define "content"}}
+<p>User: </p>
+{{range .PageData}}
+    <h4><a href="/projects/{{.Id}}">{{.Moniker}}</a></h4>
+{{end}}
+<p>Projects</p>
+{{end}}

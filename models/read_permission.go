@@ -1,6 +1,13 @@
 package model
 
+var readPermissions []ReadPermission
+
 type ReadPermission struct {
-	ProjectId      string
-	CollaboratorId string
+	ProjectId     int
+	ContributorId int
+}
+
+func CreateReadPermission(projectId, collaboratorId int) {
+	readPermissions = append(readPermissions,
+		ReadPermission{projectId, collaboratorId})
 }

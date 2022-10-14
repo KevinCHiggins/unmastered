@@ -1,0 +1,14 @@
+{{define "content"}}
+<form id="login-form" action="/login" method="post">
+    <fieldset>
+        <legend>Login</legend>
+        <p>
+            <label for="email-input">Email</label>
+            <input name="email" type="text" id="email-input"></input>
+            <label for="password-input">Password</label>
+            <input name="password" type="text" id="password-input"></input>
+        </p>
+    </fieldset>
+    <input type="submit" id="submit-login" value="Submit"></input>
+</form>
+{{end}}

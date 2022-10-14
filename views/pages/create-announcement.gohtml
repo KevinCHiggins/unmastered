@@ -1,0 +1,17 @@
+{{define "content"}}
+<form id="create-announcement-form" action="/create-announcement" method="post">
+    <fieldset>
+        <legend>Create a new announcement</legend>
+        <p>
+        <label for="title-input">Title</label>
+        <input name="title" type="text" id="title-input">
+        </p>
+        <p>
+        <label for="text-input">Text</label>
+        <input name="text" type="textarea" id="text-input">
+        </p>
+    </fieldset>
+    <input type="submit" id="submit-announcement" value="Submit">
+
+</form>
+{{end}}

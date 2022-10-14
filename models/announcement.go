@@ -11,8 +11,13 @@ type Announcement struct {
 	PublishedDate time.Time
 }
 
-var hardcodedAnnouncements []Announcement
+var announcements []Announcement
 
 func GetAnnouncements() ([]Announcement, error) {
-	return hardcodedAnnouncements, nil
+	return announcements, nil
+}
+
+func CreateAnnouncement(title, text string) {
+	announcements = append(announcements,
+		Announcement{len(announcements) + 1, title, text, time.Now()})
 }

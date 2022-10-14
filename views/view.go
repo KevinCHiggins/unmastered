@@ -11,7 +11,7 @@ import (
 const (
 	templateLoc = "views/"
 	layoutLoc   = templateLoc + "layout/"
-	contentLoc  = templateLoc + "content/"
+	contentLoc  = templateLoc + "pages/"
 	specialLoc  = templateLoc + "special/" // pages w/o header or footer
 )
 
@@ -59,11 +59,19 @@ func inflateUsingDirContents(t *template.Template, location string) map[string]*
 		pageTemplate := template.Must(t.Clone())
 		_, err = pageTemplate.Parse(string(content))
 		if err != nil {
+			print(pageTemplate.Name)
+			print(pageTemplate.Tree)
+			fmt.Printf("Error detected at: %v", dirEntry.Name())
 			panic("Parse error: " + err.Error())
 		}
 		dotIndex := strings.LastIndex(dirEntry.Name(), ".")
 		templateName := dirEntry.Name()[:dotIndex]
 		fmt.Println("Inflating template ", templateName)
+		if templateName == "create-permission" {
+			print(pageTemplate.Tree.Root.String())
+		} else if templateName == "create-contributor" {
+			print(pageTemplate.Tree.Root.String())
+		}
 		result[templateName] = pageTemplate
 	}
 	return result

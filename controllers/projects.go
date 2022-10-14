@@ -1,4 +1,4 @@
-package controller
+package controllers
 
 import (
 	models "intive/unmastered/models"
@@ -14,18 +14,20 @@ func (c projects) registerRoutes() {
 	http.HandleFunc("/projects/", c.handleProject)
 }
 
-func (c projects) handleProjects(w http.ResponseWriter, r *http.Request) {
+func (c projects) handleProjects(rw http.ResponseWriter, r *http.Request) {
 	m, _ := models.GetProjects()
-	c.multipleTemplate.Execute(w, m)
+	vm := buildViewModel(rw, r, m)
+	c.multipleTemplate.Execute(rw, vm)
 }
 
-func (c projects) handleProject(w http.ResponseWriter, r *http.Request) {
+func (c projects) handleProject(rw http.ResponseWriter, r *http.Request) {
 	id, _ := strconv.Atoi(strings.Split(r.URL.Path, "/projects/")[1])
 	m, err := models.GetProject(id)
 	if err != nil {
 
-		errorTemplate.Execute(w, err)
+		errorTemplate.Execute(rw, err)
 		return
 	}
-	c.singleTemplate.Execute(w, m)
+	vm := buildViewModel(rw, r, m)
+	c.singleTemplate.Execute(rw, vm)
 }

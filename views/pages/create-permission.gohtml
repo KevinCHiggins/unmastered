@@ -1,0 +1,36 @@
+
+{{define "content"}}
+<form id="create-permission-form" action="/create-permission" method="post">
+    <div class="clearfix">
+        <fieldset class="vertical-radio-button-group">
+            <legend>Project</legend>
+            {{range .Projects}}
+            <p class="radio-option">
+                <input type="radio" id="{{.Id}}" name="project-radio-button" class="inline-radio-button" value="{{.Id}}">
+                <label for="{{.Id}}">{{.Moniker}}</label>
+            </p>
+            {{end}}
+        </fieldset>
+
+        <fieldset class="vertical-radio-button-group">
+            <legend>Contributor</legend>
+            {{range .Contributors}}
+                <p class="radio-option">
+                    <input type="radio" id="{{.Id}}" name="contributor-radio-button" class="inline-radio-button" value="{{.Id}}">
+                    <label for="{{.Id}}">{{.Name}}</label>
+                </p>
+
+            {{end}}
+        </fieldset>
+    </div>
+    <fieldset class="horizontal-radio-button-group">
+
+        <legend>Permission type</legend>
+        <input form="create-permission-form" type="radio" id="read" name="type-radio-button" value="read" class="inline-radio-button">
+        <label class="type-label" for="read-radio-button">Read</label>
+        <input form="create-permission-form" type="radio" id="write" name="type-radio-button" value="write" class="inline-radio-button">
+        <label class="type-label" for="write-radio-button">Write</label>
+    </fieldset>
+    <input type="submit" value="Submit" id="submit-permission">
+</form>
+{{end}}

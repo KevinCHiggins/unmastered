@@ -1,0 +1,7 @@
+{{define "title"}}Scores{{end}}
+{{define "content"}}
+{{range .PageData}}
+    <h4><a href="/scores/{{.Id}}">{{.Title}}</a></h4>
+    <p>{{.Notes}}</p>
+{{end}}
+{{end}}
